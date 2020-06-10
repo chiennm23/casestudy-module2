@@ -2,7 +2,6 @@
 if (isset($massage))
     echo "<p class='alert-info'>$massage</p>";
 ?>
-
 <div class="col-12 col-md-12">
     <div class="row">
         <div class="col-12">
