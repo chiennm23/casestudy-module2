@@ -31,10 +31,24 @@ class SubjectController
             $id = $_REQUEST['id'];
             $name = $_REQUEST['name'];
             $description = $_REQUEST['description'];
-            $subject = new Subjects($id,$name, $description);
+            $subject = new Subjects($id, $name, $description);
             $this->subjectDB->create($subject);
             header('location:index.php?page=list-subject');
         }
     }
 
+    public function edit()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $id = $_GET['id'];
+            $subject = $this->subjectDB->get($id);
+            include "src/View/subjects/edit.php";
+        } else {
+            $id = $_POST['id'];
+            $subject = new Subjects($id, $_POST['name'], $_POST['description']);
+            $this->subjectDB->update($subject);
+            header('location:index.php?page=list-subject');
+        }
+
+    }
 }

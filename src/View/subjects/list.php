@@ -20,7 +20,7 @@
                 <td><?php echo $subject->getDescription() ?></td>
                 <td>
                     <a href="#">Delete |</a>
-                    <a href="#">| Update</a>
+                    <a href="./index.php?page=edit-subject&id=<?php echo $subject->getId() ?>">| Update</a>
                 </td>
             </tr>
         <?php endforeach; ?>

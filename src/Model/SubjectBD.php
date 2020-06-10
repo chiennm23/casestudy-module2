@@ -35,4 +35,25 @@ class SubjectBD
         $stmt->bindParam(':description', $subject->getDescription());
         return $stmt->execute();
     }
+
+    public function get($id
+    {
+        $sql = "SELECT * FROM `subject` WHERE id = :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        $subject = new Subjects($row['id'], $row['name'], $row['description']);
+        return $subject;
+    }
+
+    public function update($subject)
+    {
+        $sql = "UPDATE `subject` SET name = :name, description = :description WHERE id = :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id', $subject->getId());
+        $stmt->bindParam(':name', $subject->getName());
+        $stmt->bindParam(':description', $subject->getDescription());
+        $stmt->execute();
+    }
 }

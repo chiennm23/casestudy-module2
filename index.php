@@ -44,6 +44,9 @@ $subjectController = new SubjectController();
         case 'add-subject':
             $subjectController->add();
             break;
+        case 'edit-subject':
+            $subjectController->edit();
+            break;
     }
     ?>
 </div>
