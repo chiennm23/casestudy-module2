@@ -1,6 +1,6 @@
 <div class="">
     <div class="btn btn-primary">
-        <a class="btn btn-primary" href="./index.php?page=add-group">Thêm mới</a>
+        <a class="btn btn-primary" href="./index.php?page=add-group">ADD NEW CLASS</a>
     </div>
     <table class="table mt-3 table-hover">
         <thead class="thead-dark">
@@ -17,7 +17,7 @@
             <tr>
                 <td><?php echo ++$key ?></td>
                 <td><?php echo $group->getId() ?></td>
-                <td><?php echo $group->getName() ?></td>
+                <td><a href="#"><?php echo $group->getName() ?></a></td>
                 <td><?php echo $group->getDescription() ?></td>
                 <td><?php echo $group->getStatus() ?></td>
                 <td>
