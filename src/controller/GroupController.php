@@ -22,10 +22,11 @@ class GroupController
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             include 'src/view/groups/add.php';
         } else {
+            $id = $_REQUEST['id'];
             $name = $_REQUEST['name'];
             $description = $_REQUEST['description'];
             $status = $_REQUEST['status'];
-            $group = new Groups($name, $description, $status);
+            $group = new Groups($id,$name, $description, $status);
             $this->groupDB->create($group);
             header('location:index.php');
         }

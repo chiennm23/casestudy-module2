@@ -10,6 +10,7 @@
             <th>Class</th>
             <th>Description</th>
             <th>Status</th>
+            <th>Action</th>
         </tr>
         </thead>
         <?php foreach ($groups as $key => $group): ?>
