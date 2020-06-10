@@ -32,5 +32,24 @@ class GroupDB
         return $stmt->execute();
     }
 
+    public function get($name)
+    {
+        $sql = "SELECT * FROM group_s WHERE name = :name";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':name', $name);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        $group = new Group($row['name']);
+        return $group;
+    }
+
+    public function update($group)
+    {
+        $sql = "UPDATE `group_s` SET name= :name WHERE name = :name";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':name', $group->getName());
+        return $stmt->exectue();
+    }
+
 
 }
