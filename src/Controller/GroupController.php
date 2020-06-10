@@ -1,11 +1,11 @@
 <?php
 
-namespace Controller;
+namespace App\Controller;
 
 
-use Model\Groups;
-use Model\GroupDB;
-use Model\DBConnect;
+use App\Model\Groups;
+use App\Model\GroupDB;
+use App\Model\DBConnect;
 
 class GroupController
 {
@@ -20,7 +20,7 @@ class GroupController
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            include 'src/view/groups/add.php';
+            include 'src/View/groups/add.php';
         } else {
             $id = $_REQUEST['id'];
             $name = $_REQUEST['name'];
@@ -35,7 +35,7 @@ class GroupController
     public function index()
     {
         $groups = $this->groupDB->getAll();
-        include 'src/view/groups/list.php';
+        include 'src/View/groups/list.php';
     }
 
     public function edit()
@@ -43,7 +43,7 @@ class GroupController
         if ($_SERVER['REQUEST_METHOD'] === "GET") {
             $id = $_GET['id'];
             $group = $this->groupDB->get($id);
-            include "src/view/groups/edit.php";
+            include "src/View/groups/edit.php";
         } else {
             $id = $_POST['id'];
             $group = new Groups($id,$_POST['name'], $_POST['description'], $_POST['status']);

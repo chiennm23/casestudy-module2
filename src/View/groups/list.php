@@ -2,7 +2,7 @@
     <div class="btn btn-primary">
         <a class="btn btn-primary" href="./index.php?page=add-group">Thêm mới</a>
     </div>
-    <table class="table mt-3">
+    <table class="table mt-3 table-hover">
         <thead class="thead-dark">
         <tr>
             <th>STT</th>
