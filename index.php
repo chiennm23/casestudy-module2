@@ -1,10 +1,9 @@
 <?php
-require 'src/model/GroupDB.php';
-require 'src/model/Groups.php';
-require 'src/model/DBConnect.php';
-require 'src/controller/GroupController.php';
+require __DIR__ . '/vendor/autoload.php';
+use App\Controller\GroupController;
+$page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
+$groupController = new GroupController();
 
-use \Controller\GroupController;
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,7 +19,7 @@ use \Controller\GroupController;
 <body>
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Manager Student</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,7 +54,7 @@ use \Controller\GroupController;
         </div>
     </nav>
     <?php
-    $controller = new \Controller\GroupController();
+    $controller = new App\Controller\GroupController();
     $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;
     switch ($page) {
         case 'add-group':
