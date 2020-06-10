@@ -6,19 +6,23 @@
         <thead class="thead-dark">
         <tr>
             <th>STT</th>
+            <th>Id</th>
             <th>Class</th>
-            <th>Action</th>
+            <th>Description</th>
+            <th>Status</th>
         </tr>
         </thead>
         <?php foreach ($groups as $key => $group): ?>
             <tr>
                 <td><?php echo ++$key ?></td>
+                <td><?php echo $group->getId() ?></td>
                 <td><?php echo $group->getName() ?></td>
+                <td><?php echo $group->getDescription() ?></td>
+                <td><?php echo $group->getStatus() ?></td>
                 <td>
                     <a href="">Delete |</a>
-                    <a href="./index.php?page=edit-group&name=<?php echo $group->getName()?>">| Update</a>
+                    <a href="./index.php?page=edit-group&id=<?php echo $group->getId() ?>">| Update</a>
                 </td>
-
             </tr>
         <?php endforeach; ?>
     </table>

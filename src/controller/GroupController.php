@@ -3,7 +3,7 @@
 namespace Controller;
 
 
-use Model\Group;
+use Model\Groups;
 use Model\GroupDB;
 use Model\DBConnect;
 
@@ -23,7 +23,9 @@ class GroupController
             include 'src/view/groups/add.php';
         } else {
             $name = $_REQUEST['name'];
-            $group = new Group($name);
+            $description = $_REQUEST['description'];
+            $status = $_REQUEST['status'];
+            $group = new Groups($name, $description, $status);
             $this->groupDB->create($group);
             header('location:index.php');
         }
@@ -38,12 +40,12 @@ class GroupController
     public function edit()
     {
         if ($_SERVER['REQUEST_METHOD'] === "GET") {
-            $name = $_GET['name'];
-            $group = $this->groupDB->get($name);
+            $id = $_GET['id'];
+            $group = $this->groupDB->get($id);
             include "src/view/groups/edit.php";
         } else {
-            $name = $_POST['name'];
-            $group = new GroupDB($name);
+            $id = $_POST['id'];
+            $group = new Groups($id,$_POST['name'], $_POST['description'], $_POST['status']);
             $this->groupDB->update($group);
             header('location:index.php');
         }
