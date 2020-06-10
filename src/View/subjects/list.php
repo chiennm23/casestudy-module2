@@ -19,8 +19,8 @@
                 <td><?php echo $subject->getName() ?></td>
                 <td><?php echo $subject->getDescription() ?></td>
                 <td>
-                    <a href="#">Delete |</a>
-                    <a href="./index.php?page=edit-subject&id=<?php echo $subject->getId() ?>">| Update</a>
+                    <a class="btn btn-outline-danger delete text-decoration-none" href="#">Delete</a>
+                    <a class="btn btn-outline-danger update text-decoration-none" href="./index.php?page=edit-subject&id=<?php echo $subject->getId() ?>">Update</a>
                 </td>
             </tr>
         <?php endforeach; ?>
