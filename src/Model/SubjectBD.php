@@ -36,7 +36,7 @@ class SubjectBD
         return $stmt->execute();
     }
 
-    public function get($id
+    public function get($id)
     {
         $sql = "SELECT * FROM `subject` WHERE id = :id";
         $stmt = $this->database->prepare($sql);
