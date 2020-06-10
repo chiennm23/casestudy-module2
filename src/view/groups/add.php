@@ -7,6 +7,10 @@
             <form method="post">
                 Name:
                 <input type="text" name="name">
+                Description:
+                <input type="text" name="description">
+                Status:
+                <input type="text" name="status">
                 <br>
                 <br>
                 <button type="submit" class="btn btn-primary">ADD</button>

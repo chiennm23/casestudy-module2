@@ -18,7 +18,7 @@ class GroupDB
         $result = $stmt->fetchAll();
         $arr = [];
         foreach ($result as $item) {
-            $group = new Group($item['name']);
+            $group = new Groups($item['id'],$item['name'], $item['description'], $item['status']);
             array_push($arr, $group);
         }
         return $arr;
@@ -26,29 +26,34 @@ class GroupDB
 
     public function create($group)
     {
-        $sql = "INSERT INTO group_s (name) VALUES (:name)";
+        $sql = "INSERT INTO group_s (name, description, status) VALUES (:name, :description, :status)";
         $stmt = $this->database->prepare($sql);
         $stmt->bindParam(':name', $group->getName());
+        $stmt->bindParam(':description', $group->getDescription());
+        $stmt->bindParam(':status', $group->getStatus());
         return $stmt->execute();
     }
 
-    public function get($name)
+    public function get($id)
     {
-        $sql = "SELECT * FROM group_s WHERE name = :name";
+        $sql = "SELECT * FROM group_s WHERE id = :id";
         $stmt = $this->database->prepare($sql);
-        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
         $row = $stmt->fetch();
-        $group = new Group($row['name']);
+        $group = new Groups($row['id'], $row['name'], $row['description'], $row['status']);
         return $group;
     }
 
     public function update($group)
     {
-        $sql = "UPDATE `group_s` SET name= :name WHERE name = :name";
+        $sql = "UPDATE `group_s` SET name= :name, description = :description, status = :status WHERE id = :id";
         $stmt = $this->database->prepare($sql);
         $stmt->bindParam(':name', $group->getName());
-        return $stmt->exectue();
+        $stmt->bindParam(':description', $group->getDescription());
+        $stmt->bindParam(':status', $group->getStatus());
+        $stmt->bindParam(':id', $group->getId());
+        $stmt->execute();
     }
 
 
