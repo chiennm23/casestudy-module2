@@ -1,5 +1,5 @@
 <?php
-require 'src/model/ClassDB.php';
+require 'src/model/GroupDB.php';
 require 'src/model/Group.php';
 require 'src/model/DBConnect.php';
 require 'src/controller/GroupController.php';

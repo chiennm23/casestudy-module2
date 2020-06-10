@@ -4,7 +4,7 @@ namespace Controller;
 
 
 use Model\Group;
-use Model\ClassDB;
+use Model\GroupDB;
 use Model\DBConnect;
 
 class GroupController
@@ -14,7 +14,7 @@ class GroupController
     public function __construct()
     {
         $connection = new DBConnect('mysql:host=localhost;dbname=ManagerStudent', 'root', 'Chien@123');
-        $this->groupDB = new ClassDB($connection->connect());
+        $this->groupDB = new GroupDB($connection->connect());
     }
 
     public function add()
@@ -23,10 +23,10 @@ class GroupController
             include 'src/view/groups/add.php';
         } else {
             $name = $_REQUEST['name'];
-            $class = new Group($name);
-            $this->groupDB->create($class);
+            $group = new Group($name);
+            $this->groupDB->create($group);
             $massage = 'Class created';
-            include 'src/view/add.php';
+            header('location:index.php');
         }
     }
 
