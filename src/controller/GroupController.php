@@ -25,7 +25,6 @@ class GroupController
             $name = $_REQUEST['name'];
             $group = new Group($name);
             $this->groupDB->create($group);
-            $massage = 'Class created';
             header('location:index.php');
         }
     }
@@ -34,5 +33,19 @@ class GroupController
     {
         $groups = $this->groupDB->getAll();
         include 'src/view/groups/list.php';
+    }
+
+    public function edit()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === "GET") {
+            $name = $_GET['name'];
+            $group = $this->groupDB->get($name);
+            include "src/view/groups/edit.php";
+        } else {
+            $name = $_POST['name'];
+            $group = new GroupDB($name);
+            $this->groupDB->update($group);
+            header('location:index.php');
+        }
     }
 }

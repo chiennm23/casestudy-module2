@@ -15,8 +15,8 @@
                 <td><?php echo ++$key ?></td>
                 <td><?php echo $group->getName() ?></td>
                 <td>
-                    <a href="">Delete</a>
-                    <a href="">Update</a>
+                    <a href="">Delete |</a>
+                    <a href="./index.php?page=edit-group&name=<?php echo $group->getName()?>">| Update</a>
                 </td>
 
             </tr>

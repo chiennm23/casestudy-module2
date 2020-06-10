@@ -61,6 +61,9 @@ use \Controller\GroupController;
         case 'add-group':
             $controller->add();
             break;
+        case 'edit-group':
+            $controller->edit();
+            break;
         default:
             $controller->index();
             break;
