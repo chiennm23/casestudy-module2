@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class ClassDB
+class GroupDB
 {
     protected $database;
 
@@ -24,11 +24,11 @@ class ClassDB
         return $arr;
     }
 
-    public function create($class)
+    public function create($group)
     {
         $sql = "INSERT INTO group_s (name) VALUES (:name)";
         $stmt = $this->database->prepare($sql);
-        $stmt->bindParam(':name', $class->name);
+        $stmt->bindParam(':name', $group->getName());
         return $stmt->execute();
     }
 
