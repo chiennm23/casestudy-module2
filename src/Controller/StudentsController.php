@@ -41,4 +41,9 @@ class StudentsController
             header('location:index.php?page=list-student');
         }
     }
+    public function show($id)
+    {
+        $student = $this->studentDB->findById($id);
+        include 'src/View/students/detail.php';
+    }
 }

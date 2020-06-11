@@ -40,4 +40,13 @@ class StudentDB
         $stmt->bindParam(':idclass', $student->getIdclass());
         return $stmt->execute();
     }
+
+    public function findById($id)
+    {
+        $sql = "SELECT * FROM students WHERE idclass = :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }
