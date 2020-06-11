@@ -13,6 +13,9 @@
                 <a class="nav-link" href="index.php?page=list-subject">Subject List</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="index.php?page=list-student">Student List</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
         </ul>

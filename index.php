@@ -3,11 +3,12 @@ require __DIR__ . '/vendor/autoload.php';
 
 use App\Controller\GroupController;
 use App\Controller\SubjectController;
+use App\Controller\StudentsController;
 
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $groupController = new GroupController();
 $subjectController = new SubjectController();
-
+$studentController = new StudentsController();
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,6 +27,9 @@ $subjectController = new SubjectController();
     <?php
     include 'src/View/core/menu.php';
     switch ($page) {
+        case 'list-student':
+            $studentController->index();
+            break;
         case 'list-group':
             $groupController->index();
             break;
