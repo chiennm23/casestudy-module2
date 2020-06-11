@@ -57,8 +57,18 @@ class SubjectBD
         $stmt->execute();
     }
 
-//    public function search($keyword)
-//    {
-//
-//    }
+    public function search($keyword)
+    {
+        $sql = "SELECT * FROM subject WHERE name LIKE :keyword";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindValue(':keyword', '%'.$keyword.'%');
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $arr = [];
+        foreach ($result as $item) {
+            $subject = new Subjects($item['id'], $item['name'], $item['description']);
+            array_push($arr, $subject);
+        }
+        return $arr;
+    }
 }

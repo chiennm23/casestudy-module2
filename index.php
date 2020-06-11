@@ -47,6 +47,9 @@ $subjectController = new SubjectController();
         case 'edit-subject':
             $subjectController->edit();
             break;
+        case 'search-subject':
+            $subjectController->search();
+            break;
     }
     ?>
 </div>
