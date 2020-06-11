@@ -51,4 +51,15 @@ class GroupController
             header('location:index.php?page=list-group');
         }
     }
+
+    public function search()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            include 'src/View/groups/search.php';
+        } else {
+            $search = $_POST['search'];
+            $groups =  $this->groupDB->search($search);
+            include 'src/View/groups/search.php';
+        }
+    }
 }

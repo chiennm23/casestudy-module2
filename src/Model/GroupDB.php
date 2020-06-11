@@ -18,7 +18,7 @@ class GroupDB
         $result = $stmt->fetchAll();
         $arr = [];
         foreach ($result as $item) {
-            $group = new Groups($item['id'],$item['name'], $item['description'], $item['status']);
+            $group = new Groups($item['id'], $item['name'], $item['description'], $item['status']);
             array_push($arr, $group);
         }
         return $arr;
@@ -56,5 +56,19 @@ class GroupDB
         $stmt->execute();
     }
 
+    public function search($keyword)
+    {
+        $sql = "SELECT * FROM `group_s` WHERE name LIKE :keyword ";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindValue(':keyword', '%'.$keyword.'%');
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $arr = [];
+        foreach ($result as $item) {
+            $group = new Groups($item['id'], $item['name'], $item['description'], $item['status']);
+            array_push($arr, $group);
+        }
+        return $arr;
 
+    }
 }
