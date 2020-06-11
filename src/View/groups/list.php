@@ -21,12 +21,12 @@
             <tr>
                 <td><?php echo ++$key ?></td>
                 <td><?php echo $group->getId() ?></td>
-                <td><a href="#"><?php echo $group->getName() ?></a></td>
+                <td><a class="nav-item nav-link active" href="#"><?php echo $group->getName() ?></a></td>
                 <td><?php echo $group->getDescription() ?></td>
                 <td><?php echo $group->getStatus() ?></td>
                 <td>
-                    <a href="">Delete |</a>
-                    <a href="./index.php?page=edit-group&id=<?php echo $group->getId() ?>">| Update</a>
+                    <a class="btn btn-outline-danger delete text-decoration-none" href="">Delete</a>
+                    <a class="btn btn-outline-danger update text-decoration-none" href="./index.php?page=edit-group&id=<?php echo $group->getId() ?>">Update</a>
                 </td>
             </tr>
         <?php endforeach; ?>
