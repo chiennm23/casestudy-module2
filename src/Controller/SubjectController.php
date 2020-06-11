@@ -51,4 +51,15 @@ class SubjectController
         }
     }
 
+    public function search()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            include 'src/View/subjects/search.php';
+        } else {
+            $search = $_POST['search'];
+            $subjects = $this->subjectDB->search($search);
+            include 'src/View/subjects/search.php';
+        }
+    }
+
 }
