@@ -61,7 +61,7 @@ class SubjectBD
     {
         $sql = "SELECT * FROM subject WHERE name LIKE :keyword";
         $stmt = $this->database->prepare($sql);
-        $stmt->bindValue(':keyword', '%'.$keyword.'%');
+        $stmt->bindValue(':keyword', '%' . $keyword . '%');
         $stmt->execute();
         $result = $stmt->fetchAll();
         $arr = [];
@@ -70,5 +70,13 @@ class SubjectBD
             array_push($arr, $subject);
         }
         return $arr;
+    }
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM subject WHERE id = :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
     }
 }
