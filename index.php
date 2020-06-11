@@ -30,6 +30,9 @@ $studentController = new StudentsController();
         case 'list-student':
             $studentController->index();
             break;
+        case 'add-student':
+            $studentController->add();
+            break;
         case 'list-group':
             $groupController->index();
             break;
