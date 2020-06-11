@@ -65,7 +65,8 @@ class GroupController
 
     public function delete($id)
     {
-            $this->groupDB->delete($id);
-            header('location:index.php?page=list-group');
+        $this->groupDB->delete($id);
+        header('location:index.php?page=list-group');
     }
+
 }
