@@ -56,4 +56,9 @@ class SubjectBD
         $stmt->bindParam(':description', $subject->getDescription());
         $stmt->execute();
     }
+
+//    public function search($keyword)
+//    {
+//
+//    }
 }

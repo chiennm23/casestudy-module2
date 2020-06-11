@@ -49,6 +49,6 @@ class SubjectController
             $this->subjectDB->update($subject);
             header('location:index.php?page=list-subject');
         }
-
     }
+
 }

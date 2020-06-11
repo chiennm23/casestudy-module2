@@ -25,9 +25,6 @@ $subjectController = new SubjectController();
 <div class="container">
     <?php
     include 'src/View/core/menu.php';
-    $groupController = new App\Controller\GroupController();
-    $subjectController = new App\Controller\SubjectController();
-    $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;
     switch ($page) {
         case 'list-group':
             $groupController->index();
@@ -37,6 +34,9 @@ $subjectController = new SubjectController();
             break;
         case 'edit-group':
             $groupController->edit();
+            break;
+        case 'search-group':
+            $groupController->search();
             break;
         case 'list-subject':
             $subjectController->index();
