@@ -40,7 +40,7 @@ $studentController = new StudentsController();
             $groupController->edit();
             break;
         case 'delete-group':
-            $id=$_REQUEST['id'];
+            $id = $_REQUEST['id'];
             $groupController->delete($id);
             break;
         case 'search-group':
@@ -57,6 +57,10 @@ $studentController = new StudentsController();
             break;
         case 'search-subject':
             $subjectController->search();
+            break;
+        case 'delete-subject':
+            $id = $_REQUEST['id'];
+            $subjectController->delete($id);
             break;
     }
     ?>

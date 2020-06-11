@@ -25,7 +25,7 @@
                 <td><?php echo $subject->getName() ?></td>
                 <td><?php echo $subject->getDescription() ?></td>
                 <td>
-                    <a class="btn btn-outline-danger delete text-decoration-none" href="#">Delete</a>
+                    <a class="btn btn-outline-danger delete text-decoration-none" href="./index.php?page=delete-subject&id=<?php echo $subject->getId() ?>">Delete</a>
                     <a class="btn btn-outline-primary update text-decoration-none" href="./index.php?page=edit-subject&id=<?php echo $subject->getId() ?>">Update</a>
                 </td>
             </tr>
