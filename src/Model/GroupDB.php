@@ -60,7 +60,7 @@ class GroupDB
     {
         $sql = "SELECT * FROM `group_s` WHERE name LIKE :keyword ";
         $stmt = $this->database->prepare($sql);
-        $stmt->bindValue(':keyword', '%'.$keyword.'%');
+        $stmt->bindValue(':keyword', '%' . $keyword . '%');
         $stmt->execute();
         $result = $stmt->fetchAll();
         $arr = [];
@@ -69,6 +69,13 @@ class GroupDB
             array_push($arr, $group);
         }
         return $arr;
+    }
 
+    public function delete($id)
+    {
+        $sql = "DELETE FROM `group_s` WHERE id = :id";
+        $stmt =$this->database->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
     }
 }

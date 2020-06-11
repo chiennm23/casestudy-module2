@@ -23,7 +23,7 @@ $studentController = new StudentsController();
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
+<div class="container" style="width: 980px">
     <?php
     include 'src/View/core/menu.php';
     switch ($page) {
@@ -38,6 +38,10 @@ $studentController = new StudentsController();
             break;
         case 'edit-group':
             $groupController->edit();
+            break;
+        case 'delete-group':
+            $id=$_REQUEST['id'];
+            $groupController->delete($id);
             break;
         case 'search-group':
             $groupController->search();
