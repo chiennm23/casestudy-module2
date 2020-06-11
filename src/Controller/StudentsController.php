@@ -22,4 +22,23 @@ class StudentsController
         $students = $this->studentDB->getAll();
         include 'src/View/students/list.php';
     }
+
+    public function add()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            include 'src/View/students/add.php';
+        } else {
+            $id = $_REQUEST['id'];
+            $name = $_REQUEST['name'];
+            $birthday = $_REQUEST['birthday'];
+            $email = $_REQUEST['email'];
+            $phone = $_REQUEST['phone'];
+            $grade = $_REQUEST['grade'];
+            $class = $_REQUEST['class'];
+            $idclass= $_REQUEST['idclass'];
+            $student = new Students($id, $name, $birthday, $email,$phone,$grade,$class,$idclass);
+            $this->studentDB->create($student);
+            header('location:index.php?page=list-student');
+        }
+    }
 }
