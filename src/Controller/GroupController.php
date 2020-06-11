@@ -13,7 +13,7 @@ class GroupController
 
     public function __construct()
     {
-        $connection = new DBConnect('mysql:host=localhost;dbname=ManagerStudent', 'root', 'Quang@123');
+        $connection = new DBConnect('mysql:host=localhost;dbname=ManagerStudent', 'root', 'Chien@123');
         $this->groupDB = new GroupDB($connection->connect());
     }
 
@@ -65,7 +65,7 @@ class GroupController
 
     public function delete($id)
     {
-        $this->groupDB->delete($id);
-        header('location:index.php?page=list-group');
+            $this->groupDB->delete($id);
+            header('location:index.php?page=list-group');
     }
 }
