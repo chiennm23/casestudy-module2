@@ -13,7 +13,7 @@ class GroupController
 
     public function __construct()
     {
-        $connection = new DBConnect('mysql:host=localhost;dbname=ManagerStudent', 'root', 'Chien@123');
+        $connection = new DBConnect('mysql:host=localhost;dbname=ManagerStudent', 'root', 'Quang@123');
         $this->groupDB = new GroupDB($connection->connect());
     }
 
