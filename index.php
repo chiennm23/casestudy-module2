@@ -4,11 +4,13 @@ require __DIR__ . '/vendor/autoload.php';
 use App\Controller\GroupController;
 use App\Controller\SubjectController;
 use App\Controller\StudentsController;
+use App\Controller\ScoreController;
 
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $groupController = new GroupController();
 $subjectController = new SubjectController();
 $studentController = new StudentsController();
+$scoreController = new ScoreController();
 ?>
 <!doctype html>
 <html lang="en">
@@ -69,7 +71,9 @@ $studentController = new StudentsController();
             $id = $_REQUEST['id'];
             $subjectController->delete($id);
             break;
-
+        case 'list-score':
+            $scoreController->index();
+            break;
     }
     ?>
 </div>
