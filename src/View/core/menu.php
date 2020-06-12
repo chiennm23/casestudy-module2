@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-12 col-md-10" style="margin-right: -15px;">
+    <div class="col-12 col-md-11" style="margin-right: -15px;">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="index.php">Manager Student</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -26,10 +26,7 @@
         </nav>
     </div>
     <div class="col-12 col-md-1 pt-3" style="background: #f8f9fa!important">
-            <a href="#">LogIn</a>
-    </div>
-    <div class="col-12 col-md-1 pt-3" style="background: #f8f9fa!important">
-        <a href="#">LogOut</a>
+        <a href="src/View/login/logout.php">LogOut</a>
     </div>
 </div>
 
