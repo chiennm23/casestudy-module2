@@ -84,6 +84,9 @@ $scoreController = new ScoreController();
         case 'add-score':
             $scoreController->add();
             break;
+        case 'search-score':
+            $scoreController->search();
+            break;
     }
     ?>
 </div>

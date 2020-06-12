@@ -35,4 +35,19 @@ class ScoreDB
         $stmt->bindParam(':score', $score->getScore());
         $stmt->execute();
     }
+
+    public function search($studentId)
+    {
+        $sql = "SELECT * FROM `score` WHERE `score`.`studentId`= :studentId ";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindValue(':studentId', $studentId);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $arr = [];
+        foreach ($result as $item) {
+            $score = new Score( $item['studentId'], $item['subjectId'], $item['score']);
+            array_push($arr, $score);
+        }
+        return $arr;
+    }
 }
