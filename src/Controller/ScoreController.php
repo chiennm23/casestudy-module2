@@ -20,4 +20,18 @@ class ScoreController
         $points = $this->scoreDB->getAll();
         include 'src/View/score/list.php';
     }
+
+    public function add()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            include 'src/View/score/add.php';
+        } else {
+            $studentId = $_REQUEST['studentId'];
+            $subjectId = $_REQUEST['subjectId'];
+            $scoreSubject = $_REQUEST['score'];
+            $score = new Score( $studentId, $subjectId, $scoreSubject);
+            $this->scoreDB->create($score);
+            header('location:index.php?page=list-score');
+        }
+    }
 }

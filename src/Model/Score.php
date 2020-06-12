@@ -6,13 +6,11 @@ namespace App\Model;
 
 class Score
 {
-    protected $id;
     protected $studentId;
     protected $subjectId;
     protected $score;
-    public function __construct($id,$studentId,$subjectId,$score)
+    public function __construct($studentId,$subjectId,$score)
     {
-        $this->id=$id;
         $this->studentId=$studentId;
         $this->subjectId=$subjectId;
         $this->score=$score;
@@ -42,11 +40,4 @@ class Score
         return $this->score;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 }

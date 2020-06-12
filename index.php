@@ -81,6 +81,9 @@ $scoreController = new ScoreController();
         case 'list-score':
             $scoreController->index();
             break;
+        case 'add-score':
+            $scoreController->add();
+            break;
     }
     ?>
 </div>
