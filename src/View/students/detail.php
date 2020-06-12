@@ -1,4 +1,4 @@
-<div >
+<div>
     <h2>Detail Class: <?php echo 'Class-' . $student[0]['class'] ?></h2>
 </div>
 <h4>Student List</h4>
@@ -11,6 +11,7 @@
         <th>Email</th>
         <th>Phone</th>
         <th>Grade</th>
+        <th>Action</th>
     </tr>
     </thead>
     <?php foreach ($student as $key => $item): ?>
@@ -21,6 +22,10 @@
             <td><?php echo $item['email'] ?></td>
             <td><?php echo $item['phone'] ?></td>
             <td><?php echo $item['grade'] ?></td>
+            <td>
+                <a class="btn btn-outline-danger delete text-decoration-none" href="">Delete</a>
+                <a class="btn btn-outline-primary update text-decoration-none" href="">Update</a>
+            </td>
         </tr>
     <?php endforeach; ?>
 </table>

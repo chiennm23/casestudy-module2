@@ -35,15 +35,30 @@ class StudentsController
             $phone = $_REQUEST['phone'];
             $grade = $_REQUEST['grade'];
             $class = $_REQUEST['class'];
-            $idclass= $_REQUEST['idclass'];
-            $student = new Students($id, $name, $birthday, $email,$phone,$grade,$class,$idclass);
+            $idclass = $_REQUEST['idclass'];
+            $student = new Students($id, $name, $birthday, $email, $phone, $grade, $class, $idclass);
             $this->studentDB->create($student);
             header('location:index.php?page=list-student');
         }
     }
+
     public function show($id)
     {
         $student = $this->studentDB->findById($id);
         include 'src/View/students/detail.php';
+    }
+
+    public function edit()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $id = $_GET['id'];
+            $student = $this->studentDB->get($id);
+            include 'src/View/students/edit.php';
+        } else {
+            $id = $_POST['id'];
+            $student = new Students($id, $_POST['name'],$_POST['birthday'],$_POST['email'],$_POST['phone'],$_POST['grade'],$_POST['class'],$_POST['idclass']);
+            $this->studentDB->update($student);
+            header('location:index.php?page=list-student');
+        }
     }
 }

@@ -37,6 +37,9 @@ $studentController = new StudentsController();
             $id = $_REQUEST['id'];
             $studentController->show($id);
             break;
+        case 'edit-student':
+            $studentController->edit();
+            break;
         case 'list-group':
             $groupController->index();
             break;
