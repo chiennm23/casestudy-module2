@@ -65,6 +65,7 @@ class SubjectBD
         $stmt->execute();
         $result = $stmt->fetchAll();
         $arr = [];
+
         foreach ($result as $item) {
             $subject = new Subjects($item['id'], $item['name'], $item['description']);
             array_push($arr, $subject);

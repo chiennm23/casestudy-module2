@@ -13,7 +13,7 @@ class StudentsController
 
     public function __construct()
     {
-        $connection = new DBConnect('mysql:host=localhost;dbname=ManagerStudent', 'root', 'Chien@123');
+        $connection = new DBConnect('mysql:host=localhost;dbname=ManagerStudent', 'root', 'Quang@123');
         $this->studentDB = new StudentDB($connection->connect());
     }
 
@@ -39,6 +39,18 @@ class StudentsController
             $student = new Students($id, $name, $birthday, $email,$phone,$grade,$class,$idclass);
             $this->studentDB->create($student);
             header('location:index.php?page=list-student');
+        }
+    }
+
+    public function search()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            include 'src/View/students/search.php';
+        } else {
+            $search = $_POST['search'];
+            $students = $this->studentDB->search($search);
+
+            include 'src/View/students/search.php';
         }
     }
 }
