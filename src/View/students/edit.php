@@ -9,49 +9,49 @@
                     <tr>
                         <td>Id:</td>
                         <td>
-                            <input type="text" name="id" value="<?php echo $student->getId()?>">
+                            <input type="text" name="id" value="<?php echo $student->getId() ?>">
                         </td>
                     </tr>
                     <tr>
                         <td>Name</td>
                         <td>
-                            <input type="text" name="name" value="<?php echo $student->getName()?>">
+                            <input type="text" name="name" value="<?php echo $student->getName() ?>">
                         </td>
                     </tr>
                     <tr>
                         <td>Birth Day:</td>
                         <td>
-                            <input type="text" name="birthday" value="<?php echo $student->getBirthday()?>">
+                            <input type="text" name="birthday" value="<?php echo $student->getBirthday() ?>">
                         </td>
                     </tr>
                     <tr>
                         <td>Email:</td>
                         <td>
-                            <input type="text" name="email" value="<?php echo $student->getEmail()?>">
+                            <input type="text" name="email" value="<?php echo $student->getEmail() ?>">
                         </td>
                     </tr>
                     <tr>
                         <td>Phone:</td>
                         <td>
-                            <input type="text" name="phone" value="<?php echo $student->getPhone()?>">
+                            <input type="text" name="phone" value="<?php echo $student->getPhone() ?>">
                         </td>
                     </tr>
                     <tr>
                         <td>Grade:</td>
                         <td>
-                            <input type="text" name="grade" value="<?php echo $student->getGrade()?>">
+                            <input type="text" name="grade" value="<?php echo $student->getGrade() ?>">
                         </td>
                     </tr>
                     <tr>
                         <td>Class:</td>
                         <td>
-                            <input type="text" name="class" value="<?php echo $student->getClass()?>">
+                            <input type="text" name="class" value="<?php echo $student->getClass() ?>">
                         </td>
                     </tr>
                     <tr>
                         <td>Id Class:</td>
                         <td>
-                            <input type="text" name="idclass" value="<?php echo $student->getIdclass()?>">
+                            <input type="text" name="idclass" value="<?php echo $student->getIdclass() ?>">
                         </td>
                     </tr>
                 </table>
