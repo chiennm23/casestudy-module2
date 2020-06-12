@@ -34,4 +34,15 @@ class ScoreController
             header('location:index.php?page=list-score');
         }
     }
+
+    public function search()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            include 'src/View/groups/search.php';
+        } else {
+            $search = $_POST['search'];
+            $points = $this->scoreDB->search($search);
+            include 'src/View/score/search.php';
+        }
+    }
 }
