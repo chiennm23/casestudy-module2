@@ -31,7 +31,7 @@
                 <td><?php echo $student->getClass() ?></td>
                 <td>
                     <a class="btn btn-outline-danger delete text-decoration-none" href="">Delete</a>
-                    <a class="btn btn-outline-danger update text-decoration-none" href="./index.php?page=edit-student&id=<?php echo $student->getId() ?>">Update</a>
+                    <a class="btn btn-outline-primary update text-decoration-none" href="./index.php?page=edit-student&id=<?php echo $student->getId() ?>">Update</a>
                 </td>
             </tr>
         <?php endforeach; ?>

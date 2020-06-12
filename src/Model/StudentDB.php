@@ -28,7 +28,8 @@ class StudentDB
 
     public function create($student)
     {
-        $sql = "INSERT INTO `students`(`id`, `name`, `birthday`, `email`, `phone`, `grade`, `class`, `idclass`) VALUES (:id,:name, :birthday, :email, :phone, :grade, :class, :idclass)";
+        $sql = "INSERT INTO `students`(`id`, `name`, `birthday`, `email`, `phone`, `grade`, `class`, `idclass`) 
+                VALUES (:id,:name, :birthday, :email, :phone, :grade, :class, :idclass)";
         $stmt = $this->database->prepare($sql);
         $stmt->bindParam(':id', $student->getId());
         $stmt->bindParam(':name', $student->getName());
@@ -63,5 +64,32 @@ class StudentDB
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         return $stmt->fetchAll();
+    }
+
+    public function get($id)
+    {
+        $sql = "SELECT * FROM students WHERE id = :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        $student = new Students($row['id'], $row['name'], $row['birthday'], $row['email'], $row['phone'], $row['grade'], $row['class'], $row['idclass']);
+        return $student;
+    }
+
+    public function update($student)
+    {
+        $sql = "UPDATE `students` SET `name`= :name,`birthday`= :birthday,`email`= :email,`phone`= :phone,`grade`= :grade,`class`= :class,`idclass`= :idclass 
+                WHERE id = :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id', $student->getId());
+        $stmt->bindParam(':name', $student->getName());
+        $stmt->bindParam(':birthday', $student->getBirthday());
+        $stmt->bindParam(':email', $student->getEmail());
+        $stmt->bindParam(':phone', $student->getPhone());
+        $stmt->bindParam(':grade', $student->getGrade());
+        $stmt->bindParam(':class', $student->getClass());
+        $stmt->bindParam(':idclass', $student->getIdclass());
+        $stmt->execute();
     }
 }
