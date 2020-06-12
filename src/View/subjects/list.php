@@ -1,4 +1,4 @@
-<div class="" style="width: 980px">
+    <div class="" style="width: 980px">
     <div class="row">
         <div class="col-12 col-md-8">
             <a class="btn btn-primary" href="./index.php?page=add-subject">ADD NEW SUBJECT</a>
