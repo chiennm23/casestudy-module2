@@ -42,6 +42,21 @@ class StudentDB
         return $stmt->execute();
     }
 
+
+    public function search($id)
+    {
+        $sql = "SELECT * FROM `students` WHERE id LIKE :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $arr = [];
+        foreach ($result as $item) {
+            $student = new Students($item['id'], $item['name'], $item['birthday'], $item['email'], $item['phone'], $item['grade'], $item['class'], $item['idclass']);
+            array_push($arr, $student);
+        }
+        return $arr;
+    }
     public function findById($id)
     {
         $sql = "SELECT * FROM students WHERE idclass = :id";
