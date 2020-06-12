@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['userLogin'])){
+    header('location:src/View/login/login.php');
+}
 require __DIR__ . '/vendor/autoload.php';
 
 use App\Controller\GroupController;
