@@ -1,5 +1,5 @@
 <div class="" style="width: 980px">
-    <table class="table mt-3 table-hover border border-warning">
+    <table style="background: white" class="table mt-3 table-hover border border-warning">
         <thead class="thead-dark">
         <tr>
             <th>STT</th>

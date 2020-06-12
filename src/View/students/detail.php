@@ -2,7 +2,7 @@
     <h2>Detail Class: <?php echo 'Class-' . $student[0]['class'] ?></h2>
 </div>
 <h4>Student List</h4>
-<table class="table table-hover table-list">
+<table style="background: white" class="table table-hover table-list">
     <thead class="thead-dark">
     <tr>
         <th>STT</th>
