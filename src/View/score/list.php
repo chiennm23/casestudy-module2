@@ -17,6 +17,7 @@
             <th>StudentID</th>
             <th>SubjectID</th>
             <th>Score</th>
+            <th>Action</th>
         </tr>
         </thead>
         <?php foreach ($points as $key => $point): ?>
@@ -26,8 +27,8 @@
                 <td><?php echo $point->getSubjectId() ?></td>
                 <td><?php echo $point->getScore() ?></td>
                 <td>
-                    <a class="btn btn-outline-danger delete text-decoration-none" href="./index.php?page=delete-score&id=<?php echo $point->getId() ?>">Delete</a>
-                    <a class="btn btn-outline-primary update text-decoration-none" href="./index.php?page=edit-score&id=<?php echo $point->getId() ?>">Update</a>
+                    <a class="btn btn-outline-danger delete text-decoration-none" href="./index.php?page=delete-subject&id=<?php echo $point->getStudentId() ?>">Delete</a>
+                    <a class="btn btn-outline-primary update text-decoration-none" href="./index.php?page=edit-subject&id=<?php echo $point->getStudentId() ?>">Update</a>
                 </td>
             </tr>
         <?php endforeach; ?>
