@@ -23,7 +23,11 @@
         <?php foreach ($groups as $key => $group): ?>
             <tr>
                 <td><?php echo ++$key ?></td>
-                <td><a class="nav-item nav-link active" href="#"><?php echo $group->getName() ?></a></td>
+                <td>
+                    <a class="nav-item nav-link active" href="./index.php?page=detail-student&id=<?php echo $group->getId() ?>">
+                        <?php echo $group->getName() ?>
+                    </a>
+                </td>
                 <td><?php echo $group->getDescription() ?></td>
                 <td><?php echo $group->getStatus() ?></td>
                 <td>

@@ -33,8 +33,13 @@ $studentController = new StudentsController();
         case 'add-student':
             $studentController->add();
             break;
+
         case 'search-student':
             $studentController->search();
+            break;
+        case 'detail-student':
+            $id = $_REQUEST['id'];
+            $studentController->show($id);
             break;
         case 'list-group':
             $groupController->index();
@@ -68,6 +73,7 @@ $studentController = new StudentsController();
             $id = $_REQUEST['id'];
             $subjectController->delete($id);
             break;
+
     }
     ?>
 </div>

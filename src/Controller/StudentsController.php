@@ -53,4 +53,9 @@ class StudentsController
             include 'src/View/students/search.php';
         }
     }
+    public function show($id)
+    {
+        $student = $this->studentDB->findById($id);
+        include 'src/View/students/detail.php';
+    }
 }
