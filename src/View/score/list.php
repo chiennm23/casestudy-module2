@@ -28,7 +28,7 @@
                 <td><?php echo $point->getScore() ?></td>
                 <td>
                     <a class="btn btn-outline-danger delete text-decoration-none" href="./index.php?page=delete-subject&id=<?php echo $point->getStudentId() ?>">Delete</a>
-                    <a class="btn btn-outline-primary update text-decoration-none" href="./index.php?page=edit-subject&id=<?php echo $point->getStudentId() ?>">Update</a>
+                    <a class="btn btn-outline-primary update text-decoration-none" href="./index.php?page=edit-score&id=<?php echo $point->getStudentId() ?>">Update</a>
                 </td>
             </tr>
         <?php endforeach; ?>

@@ -50,4 +50,24 @@ class ScoreDB
         }
         return $arr;
     }
+
+    public function update($score)
+    {
+        $sql = "UPDATE `score` SET `score`= :score WHERE `studentId` = :studentId ";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':studentId', $score->getStudentId());
+        $stmt->bindParam(':score', $score->getScore());
+        $stmt->execute();
+    }
+
+    public function get($studentId)
+    {
+        $sql = "SELECT * FROM score WHERE studentId = :studentId";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':studentId', $studentId);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        $score = new Score($row['studentId'], $row['subjectId'], $row['score']);
+        return $score;
+    }
 }

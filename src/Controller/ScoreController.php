@@ -11,7 +11,7 @@ class ScoreController
 
     public function __construct()
     {
-        $connection = new DBConnect('mysql:host=localhost;dbname=ManagerStudent', 'root', 'Chien@123');
+        $connection = new DBConnect('mysql:host=localhost;dbname=ManagerStudent', 'root', 'Quang@123');
         $this->scoreDB = new ScoreDB($connection->connect());
     }
 
@@ -43,6 +43,20 @@ class ScoreController
             $search = $_POST['search'];
             $points = $this->scoreDB->search($search);
             include 'src/View/score/search.php';
+        }
+    }
+
+    public function edit()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === "GET") {
+            $studentId = $_GET['studentId'];
+            $score = $this->scoreDB->get($studentId);
+            include "src/View/score/edit.php";
+        } else {
+            $studentId = $_POST['studentId'];
+            $score = new Score($studentId,$_POST['subjectId'], $_POST['score']);
+            $this->scoreDB->update($score);
+            header('location:index.php?page=list-score');
         }
     }
 }
