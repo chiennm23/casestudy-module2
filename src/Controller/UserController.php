@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Model\DBConnect;
 use App\Model\UserDB;
+use App\Model\Users;
 
 //use App\Model\Users;
 class UserController
@@ -20,5 +21,18 @@ class UserController
     public function findUser($username, $password)
     {
         return $this->userDB->searchUser($username, $password);
+    }
+
+    public function add()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = $_REQUEST['username'];
+            $password = $_REQUEST['password'];
+            $phone = $_REQUEST['phone'];
+            $email = $_REQUEST['email'];
+            $user = new Users($username, $password, $phone, $email);
+            $this->userDB->create($user);
+            header("location:../../../index.php");
+        }
     }
 }

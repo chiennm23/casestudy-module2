@@ -26,7 +26,7 @@ session_start();
                     <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
                 </form>
             </div>
-            <a href="#" class="text-center new-account">Create an account </a>
+            <a href="../register/register.php" class="text-center new-account">Create an account </a>
         </div>
     </div>
 </div>
